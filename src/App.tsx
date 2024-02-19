@@ -3,6 +3,41 @@
 Whole Project Code from :
 https://github.com/CodeCompleteYT/react-drag-and-drop 
 
+
+Key Concepts of dnd-kit:
+  DndContext
+    SortableContext
+      useSortable
+
+1. DndContext
+  <DndContext
+    sensors={sensors}
+    collisionDetection={closestCorners}
+    onDragEnd={handleDragEnd}
+  >
+    <Column id="toDo" tasks={tasks} />
+  </DndContext>
+2. SortableContext
+  <SortableContext 
+    items={tasks} 
+    strategy={verticalListSortingStrategy}
+  >
+    {tasks.map((task) => (
+      <Task key={task.id} id={task.id} title={task.title} />
+    ))}
+  </SortableContext>
+3. useSortable
+  <div
+    ref={setNodeRef}
+    style={style}
+    {...attributes}
+    {...listeners}
+    className="task"
+  >
+    {title}
+  </div>
+
+
 */
 
 import { useState } from "react";
@@ -28,7 +63,7 @@ export type TaskType = {
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: 1, title: "86 미화에게 편지쓰기" },
+    { id: 1, title: "84 미화에게 편지쓰기" },
     { id: 2, title: "08 혜진에게 전화하기" },
     { id: 3, title: "87 외숙에게 고백하기" },
     { id: 4, title: "93 인아에게 선물하기" },
@@ -47,8 +82,11 @@ function App() {
     })
   );
 
+  //
   const getTaskPos = (id: number) => tasks.findIndex((task) => task.id === id);
 
+  // DragEndEvent handler
+  // Record new Order
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
 
