@@ -24,7 +24,6 @@ export const Task = ({ id, title }: TaskType) => {
   const draggingStyle = {
     opacity: 0.3,
   };
-
   const notDraggingStyle = {
     opacity: 1,
   };

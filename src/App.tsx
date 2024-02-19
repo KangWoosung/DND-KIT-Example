@@ -3,11 +3,14 @@
 Whole Project Code from :
 https://github.com/CodeCompleteYT/react-drag-and-drop 
 
+required dependencies:
+npm install @dnd-kit/core @dnd-kit/utilities @dnd-kit/sortable
 
-Key Concepts of dnd-kit:
-  DndContext
-    SortableContext
-      useSortable
+Key Concepts of this dnd-kit:
+  DndContext          --from "@dnd-kit/core";
+    SortableContext   --from "@dnd-kit/sortable";
+      useSortable     --from "@dnd-kit/sortable";
+      CSS             --from "@dnd-kit/utilities";
 
 1. DndContext
   <DndContext
@@ -37,6 +40,12 @@ Key Concepts of dnd-kit:
     {title}
   </div>
 
+
+2024-02-19 20:35:57
+Couldn't find official Doc for arrayMove function.
+It seems to be:
+  arrayMove<T>(array: T[], from: number | string, to: number | string): T[]
+  It swaps [from] and [to] index of [array] and returns new array.
 
 */
 
