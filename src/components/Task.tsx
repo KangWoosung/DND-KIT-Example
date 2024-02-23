@@ -9,6 +9,7 @@ import { CSS } from "@dnd-kit/utilities";
 
 import "./Task.css";
 import { TaskType } from "../App";
+import { useId } from "react";
 
 export const Task = ({ id, title }: TaskType) => {
   const {
@@ -19,6 +20,7 @@ export const Task = ({ id, title }: TaskType) => {
     transition,
     isDragging,
   } = useSortable({ id });
+  const usId = useId();
 
   // while dragging set opacity to 0.3
   const draggingStyle = {
@@ -42,8 +44,8 @@ export const Task = ({ id, title }: TaskType) => {
       {...listeners}
       className="task"
     >
-      <input type="checkbox" className="checkbox" />
-      {title}
+      <input type="checkbox" id={`${usId}`} className="checkbox" />
+      <label htmlFor={`${usId}`}>{title}</label>
     </div>
   );
 };

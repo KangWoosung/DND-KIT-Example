@@ -113,6 +113,7 @@ function App() {
   return (
     <div className="App">
       <h1>DND-KIT Example</h1>
+      <p>드래그가 시작되는 순간부터, 스크린 전체에 애니메이션을 주자</p>
       <Input onSubmit={addTask} />
       <DndContext
         sensors={sensors}
